@@ -64,7 +64,7 @@ void solve(){
             m.insert((make_pair(amount,name)));
         }
     }
-    cout<<"\n\n after solving the splitwise cash flow:\n"<<endl;
+    cout<<"\n\nafter solving the splitwise cash flow:\n"<<endl;
     while(!m.empty()){
         auto low=m.begin();
         auto high=prev(m.end());
