@@ -14,6 +14,7 @@ int main()
 
     return 0;
 }
+
 void welcome(){
 cout<<"**************************************************************************\n";
 cout<<"**************************************************************************\n";
@@ -25,9 +26,8 @@ cout<<"**______________________________________________________________________*
 cout<<"**************************************************************************\n";
 cout<<"**************************************************************************\n";
 cout<<"\n\n\n";
-
-
 }
+
 void solve(){
     int nooftransactions,friends;
     cout<<"Enter The Total No Of Transactions To Be Made: ";
@@ -39,12 +39,15 @@ void solve(){
     cin>>friends;
     cout<<endl;
     int amount;
+    
     string x,y;
     multimap<int,string>m;
     unordered_map<string,int>net;
+    
     cout<<"one by one enter the details in the format as given below."<<endl;
     cout<<"once done press enter.\n";
-    cout<<"WHO HAS TO PAY _ TO WHOM _ HOW MUCH"<<endl;
+    cout<<"Name (WHO HAS TO PAY) _ Name(TO WHOM) _ Amount(HOW MUCH)"<<endl;
+    
     while(nooftransactions--){
         cin>>x>>y>>amount;
         if(net.count(x)==0){
@@ -57,6 +60,7 @@ void solve(){
         net[y]+=amount;
 
     }
+    
     for(auto p:net){
         string name=p.first;
         int amount =p.second;
@@ -64,7 +68,9 @@ void solve(){
             m.insert((make_pair(amount,name)));
         }
     }
-    cout<<"\n\nafter solving the splitwise cash flow:\n"<<endl;
+    
+    cout<<"\n\nAfter solving the splitwise cash flow:\n"<<endl;
+    
     while(!m.empty()){
         auto low=m.begin();
         auto high=prev(m.end());
@@ -75,13 +81,17 @@ void solve(){
 
         m.erase(low);
         m.erase(high);
+        
         int settlementamount=min(-debit,credit);
         debit+=settlementamount;
         credit-=settlementamount;
+        
         cout<<dname<<" has to pay rupees "<<settlementamount<<" to "<< cname<<endl;
+        
         if(debit!=0){
             m.insert(make_pair(debit,dname));
         }
+        
         if(credit!=0){
             m.insert(make_pair(credit,cname));
         }
