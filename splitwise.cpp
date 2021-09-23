@@ -5,8 +5,10 @@
 #include<utility>
 
 using namespace std;
+
 void welcome();
 void solve();
+
 int main()
 {
     welcome();
@@ -14,6 +16,8 @@ int main()
 
     return 0;
 }
+
+//welcome message
 void welcome(){
 cout<<"**************************************************************************\n";
 cout<<"**************************************************************************\n";
@@ -25,9 +29,9 @@ cout<<"**______________________________________________________________________*
 cout<<"**************************************************************************\n";
 cout<<"**************************************************************************\n";
 cout<<"\n\n\n";
-
-
 }
+
+
 void solve(){
     int nooftransactions,friends;
     cout<<"Enter Total No Of Transactions To Be Made: ";
@@ -82,7 +86,9 @@ void solve(){
         int settlementamount=min(-debit,credit);
         debit+=settlementamount;
         credit-=settlementamount;
+        
         cout<<dname<<" has to pay rupees "<<settlementamount<<" to "<< cname<<endl;
+        
         if(debit!=0){
             m.insert(make_pair(debit,dname));
         }
@@ -95,8 +101,10 @@ void solve(){
     
     cout<<".................................................................\n\n";
     cout<<"\n\nThankYou!! \n\nDo you wish to solve another cash flow?"<<endl;
+    
     string ans;
     cin>>ans;
+    
     if(ans=="y"||ans=="yes"||ans=="YES" || ans=="Yes"){
         cout<<endl;
         solve();
