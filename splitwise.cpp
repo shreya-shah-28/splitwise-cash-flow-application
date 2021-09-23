@@ -92,7 +92,8 @@ void solve(){
 
 
     }
-        cout<<".................................................................\n\n";
+    
+    cout<<".................................................................\n\n";
     cout<<"\n\nThankYou!! \n\nDo you wish to solve another cash flow?"<<endl;
     string ans;
     cin>>ans;
